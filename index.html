@@ -21,8 +21,6 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(128, 0, 128, 0.2);
-
-            /* animação ao carregar */
             animation: aparecer 1s ease;
         }
 
@@ -49,18 +47,16 @@
             color: #333;
         }
 
-        img {
+        img.foto {
             width: 100%;
             max-width: 150px;
             border-radius: 50%;
             margin-top: 15px;
             border: 4px solid #6a0dad;
-
-            /* animação */
             transition: transform 0.3s ease;
         }
 
-        img:hover {
+        img.foto:hover {
             transform: scale(1.1);
         }
 
@@ -76,13 +72,29 @@
             border-radius: 8px;
             color: #4b0082;
             font-weight: bold;
-
             transition: all 0.3s ease;
         }
 
         li:hover {
             background-color: #d8b4fe;
             transform: translateX(5px);
+        }
+
+        /* Jigglypuff */
+        #jigglypuff {
+            position: fixed;
+            bottom: 20px;
+            right: -80px;
+            width: 100px;
+            transition: right 0.5s ease;
+        }
+
+        #olhinhos {
+            position: fixed;
+            bottom: 110px;
+            right: -60px;
+            font-size: 30px;
+            transition: right 0.5s ease;
         }
     </style>
 </head>
@@ -96,7 +108,7 @@
         <h2>Sobre mim</h2>
         <p>Meu nome é Milene e estou aprendendo desenvolvimento web.</p>
 
-        <img src="minha-foto.jpeg" alt="Minha foto">
+        <img src="minha-foto.jpeg" alt="Minha foto" class="foto">
 
         <h2>Minhas habilidades</h2>
         <ul>
@@ -106,6 +118,27 @@
         </ul>
 
     </div>
+
+    <!-- Jigglypuff + olhos -->
+    <img id="jigglypuff" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png">
+    <div id="olhinhos">👀</div>
+
+    <script>
+        document.addEventListener("keydown", function() {
+            let jig = document.getElementById("jigglypuff");
+            let eyes = document.getElementById("olhinhos");
+
+            // aparece
+            jig.style.right = "10px";
+            eyes.style.right = "30px";
+
+            // some depois
+            setTimeout(() => {
+                jig.style.right = "-80px";
+                eyes.style.right = "-60px";
+            }, 2000);
+        });
+    </script>
 
 </body>
 </html>
